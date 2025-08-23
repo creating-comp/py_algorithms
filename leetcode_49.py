@@ -10,3 +10,14 @@ for word in strs:
     d[key].append(word)
 
 print(dict(d))
+
+# another solution with hash tables
+from collections import defaultdict
+
+class Solution(object):
+    def groupAnagrams(self, strs):
+        letters = defaultdict(list)
+        for word in strs:
+            letters[tuple(sorted(word[:]))].append(word)
+        return list(letters.values())
+        
